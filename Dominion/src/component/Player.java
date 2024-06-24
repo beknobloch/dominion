@@ -299,6 +299,20 @@ public class Player {
         discardPile.add(card);
     }
 
+    public void discardDownTo(int num)
+    {
+        while (hand.size() > num)
+        {
+            int dc = hand.size() - num;
+            ArrayList<Card> cardsToDiscard = uih.selectCardsFromHand(this, String.format("Choose %d cards to discard.", dc), dc, dc, "all");
+            for (Card c : cardsToDiscard)
+            {
+                discard(c);
+                remove_from_hand(c);
+            }
+        }
+    }
+
 
     @Override
     public String toString()
