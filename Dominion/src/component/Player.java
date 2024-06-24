@@ -139,6 +139,14 @@ public class Player {
         draw(5);
     }
 
+    public int handleEvent(GameEvent event)
+    {
+        for (Card c : hand)
+        {
+            if (c instanceof Reaction && ((Reaction)c).react(event))
+        }
+    }
+
     public String name() {
         return name;
     }
