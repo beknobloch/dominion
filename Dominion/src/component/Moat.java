@@ -2,13 +2,25 @@ package component;
 
 import java.util.ArrayList;
 
-public class Moat extends Action {
+public class Moat extends Action implements Reaction {
 
     @Override
     public int cost() { return 2; }
 
     @Override
     public int cards() { return 2; }
+
+    @Override
+    public boolean react(GameEvent event, Player player)
+    {
+        if ( event == GameEvent.ATTACK && userInputHandler.yes_or_no("React with Moat?") )
+        {
+            player.setVulnerableToAttack(true);
+            userInputHandler.display(player.name() + " blocked the attack with a Moat.", false);
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public String toString() { return "Moat"; }
