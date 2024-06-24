@@ -11,6 +11,8 @@ public interface UserInputHandler {
     void display(String message);
     void display(String message, boolean requireButtonPress);
 
+    boolean yes_or_no(String question);
+
     void markNewPlayerTurn(Player player);
     void displayRemainingBuys(Player player);
     void displayRemainingActions(Player player);
