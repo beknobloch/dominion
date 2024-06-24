@@ -15,7 +15,7 @@ public class Witch extends Action {
     {
         for (Player p : otherPlayers)
         {
-            if (!p.handleEvent(GameEvent.ATTACK) == "block_attack")
+            if (p.attack())
                 p.gain("Curse");
         }
     }
