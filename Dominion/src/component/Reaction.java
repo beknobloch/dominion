@@ -2,6 +2,6 @@ package component;
 
 public interface Reaction {
 
-  public boolean react(Player player);
+  public boolean react(GameEvent event, Player player);
   
 }
