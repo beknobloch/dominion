@@ -8,8 +8,6 @@ public class Festival extends Action {
     @Override
     public int actions() { return 2; }
     @Override
-    public int cards() { return 0; }
-    @Override
     public int coin() { return 2; }
     @Override
     public int buys() { return 1; }
