@@ -11,15 +11,14 @@ public class Moat extends Action implements Reaction {
     public int cards() { return 2; }
 
     @Override
-    public boolean react(GameEvent event, Player player)
+    public String react(GameEvent event, Player player)
     {
         if ( event == GameEvent.ATTACK && userInputHandler.yes_or_no("React with Moat?") )
         {
-            player.setVulnerableToAttack(true);
             userInputHandler.display(player.name() + " blocked the attack with a Moat.", false);
-            return true;
+            return "block_attack";
         }
-        return false;
+        return "reaction_declined";
     }
 
     @Override
