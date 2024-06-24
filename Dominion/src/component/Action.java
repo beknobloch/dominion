@@ -37,11 +37,11 @@ public abstract class Action extends Card {
     @Override
     public String description() {
         String d = "";
-        
-        if (cards() > 0) d += "+" + cards() + " cards    ";
-        if (actions() > 0) d += "+" + actions() + " actions    ";
-        if (coin() > 0) d += "+" + buys() + " buys    ";
-        if (buys() > 0) d += "+$" + coin() + "   ";
+
+        if (cards() > 0) d += String.format("+%d card%s. ", cards(), cards() == 1 ? "" : "s");
+        if (actions() > 0) d += String.format("+%d action%s. ", actions(), actions() == 1 ? "" : "s");
+        if (coin() > 0) d += String.format("+%d buy%s. ", buys(), buys() == 1 ? "" : "s");
+        if (buys() > 0) d += String.format("+¤%d. ", coin());
 
         return d;
     }
