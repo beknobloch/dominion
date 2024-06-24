@@ -211,7 +211,7 @@ public class CLIUserInputHandler implements UserInputHandler {
                 availableCard = s.displayCard();
             }
 
-            System.out.println(String.format("%d. %s %s  |  $%d  |  :  %s", i, availableCard.toString(), availableCard.typeToString(), availableCard.cost(), availableCard.description()));
+            System.out.println(String.format("%d. %s %s  |  ¤%d  |  :  %s", i, availableCard.toString(), availableCard.typeToString(), availableCard.cost(), availableCard.description()));
         }
 
         int cardsSelected = 0;
