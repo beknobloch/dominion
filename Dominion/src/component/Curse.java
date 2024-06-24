@@ -14,6 +14,8 @@ public class Curse extends Card {
 
     @Override
     public String toString() { return "Curse"; }
+    @Override
+    public String typeToString() { return ""; }
 
     @Override
     public String description() {
