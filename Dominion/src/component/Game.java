@@ -37,8 +37,19 @@ public class Game {
                 p.actionPhase(otherPlayers);
                 p.buyPhase(otherPlayers);
                 p.cleanup();
+
+                if (endOfGame())
+                    break;
             }
+
+            if (endOfGame())
+                break;
         }
+
+        userInputHandler.display("The game is over! Proceed to see the winner...");
+
+        Player winner = determineWinner();
+        userInputHandler.display("The winner is " + winner.name() + "!!!");
     }
 
     private void createPlayers(int num)
@@ -50,9 +61,30 @@ public class Game {
         }
     }
 
-    public boolean endGame()
+    public boolean endOfGame()
     {
         return kingdom.emptyOnProvinces() || kingdom.numEmptySupplyPiles() > 2;
+    }
+
+    public Player determineWinner()
+    {
+        int maxScore = Integer.MIN_VALUE;
+        Player winningPlayer = new Player();
+        for (Player p : players)
+        {
+            int thisScore = 0;
+            for (Card c : p.hand())
+            {
+                if (c.type().contains(Type.VICTORY) || c.type().contains(Type.CURSE))
+                    thisScore += c.victory_points();
+            }
+            if (thisScore > maxScore)
+            {
+                maxScore = thisScore;
+                winningPlayer = p;
+            }
+        }
+        return winningPlayer;
     }
 
 }
