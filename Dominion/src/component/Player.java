@@ -152,6 +152,11 @@ public class Player {
         return reactionOutput;
     }
 
+    public boolean attack()
+    {
+        return handleEvent(GameEvent.ATTACK) != "block_attack";
+    }
+
     public String name() {
         return name;
     }
