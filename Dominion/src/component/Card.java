@@ -14,6 +14,16 @@ public abstract class Card {
 
     @Override
     public abstract String toString();
+    public String typesToString()
+    {
+        String v = "(";
+        if (type().size() > 0)
+            v += type().get(0);
+        for (int i = 1 ; i < type().size() ; i++)
+            v += ", " + type().get(i);
+        v += ")";
+        return v;
+    }
     public abstract String description();
     public abstract ArrayList<Type> type();
 
