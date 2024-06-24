@@ -81,6 +81,21 @@ public class CLIUserInputHandler implements UserInputHandler {
     }
 
     @Override
+    public boolean yes_or_no(String question)
+    {
+        response = "";
+        System.out.print(question + ": ");
+        String response = scanner.nextLine();
+        while (!(response.lower().equals("yes") || response.lower().equals("no") || response.lower().equals("y") || response.lower().equals("n")))
+        {
+            System.out.print(question + " Please type yes or no: ");
+            response = scanner.nextLine();
+        }
+        return response.lower().equals("yes") || response.lower().equals("y");
+    }
+    
+
+    @Override
     public void markNewPlayerTurn(Player player)
     {
         System.out.println("\n\n----------");
