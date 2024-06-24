@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 public class Chapel extends Action {
 
-    public Chapel(UserInputHandler uih) {
-        super(uih);
-    }
-
     @Override
     public int cost() { return 2; }
 
