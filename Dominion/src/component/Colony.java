@@ -9,6 +9,6 @@ public class Colony extends Victory {
     public int victory_points() { return 10; }
 
     @Override
-    public String toString() { return "Province"; }
+    public String toString() { return "Colony"; }
 
 }
