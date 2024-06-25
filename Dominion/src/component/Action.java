@@ -49,7 +49,7 @@ public abstract class Action extends Card {
     @Override
     public ArrayList<Type> type() {
         ArrayList<Type> t = new ArrayList<>();
-        t.add(Type.Action);
+        t.add(Type.ACTION);
         return t;
     }
     

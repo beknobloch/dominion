@@ -83,15 +83,14 @@ public class CLIUserInputHandler implements UserInputHandler {
     @Override
     public boolean yes_or_no(String question)
     {
-        response = "";
         System.out.print(question + ": ");
         String response = scanner.nextLine();
-        while (!(response.lower().equals("yes") || response.lower().equals("no") || response.lower().equals("y") || response.lower().equals("n")))
+        while (!(response.toLowerCase().equals("yes") || response.toLowerCase().equals("no") || response.toLowerCase().equals("y") || response.toLowerCase().equals("n")))
         {
             System.out.print(question + " Please type yes or no: ");
             response = scanner.nextLine();
         }
-        return response.lower().equals("yes") || response.lower().equals("y");
+        return response.toLowerCase().equals("yes") || response.toLowerCase().equals("y");
     }
     
 
@@ -160,7 +159,7 @@ public class CLIUserInputHandler implements UserInputHandler {
 
         for (Card c : location)
         {
-            if (type.equals("all") || (type.equals("action") && c.type().contains(Type.Action)) || (type.equals("treasure") && c.type().contains(Type.Treasure)))
+            if (type.equals("all") || (type.equals("action") && c.type().contains(Type.ACTION)) || (type.equals("treasure") && c.type().contains(Type.TREASURE)))
             {
                 selection.add(c);
             } 
@@ -226,7 +225,7 @@ public class CLIUserInputHandler implements UserInputHandler {
                 availableCard = s.displayCard();
             }
 
-            System.out.println(String.format("%d. %s %s  |  ¤%d  |  :  %s", i, availableCard.toString(), availableCard.typeToString(), availableCard.cost(), availableCard.description()));
+            System.out.println(String.format("%d. %s %s  |  ¤%d  |  :  %s", i, availableCard.toString(), availableCard.typesToString(), availableCard.cost(), availableCard.description()));
         }
 
         int cardsSelected = 0;

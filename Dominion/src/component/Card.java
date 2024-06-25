@@ -17,7 +17,7 @@ public abstract class Card {
     public String typesToString()
     {
         String v = "(";
-        if (type().size() > 0)
+        if (!type().isEmpty())
             v += type().get(0);
         for (int i = 1 ; i < type().size() ; i++)
             v += ", " + type().get(i);

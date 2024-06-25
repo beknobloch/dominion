@@ -1,12 +1,12 @@
 package component;
 
 public enum Type {
-    Victory,
-    Curse,
-    Treasure,
-    Action,
-    Attack,
-    Reaction;
+    VICTORY("Victory"),
+    CURSE("Curse"),
+    TREASURE("Treasure"),
+    ACTION("Action"),
+    ATTACK("Attack"),
+    REACTION("Reaction");
 
     private final String printableName;
 

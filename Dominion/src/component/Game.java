@@ -69,14 +69,15 @@ public class Game {
     public Player determineWinner()
     {
         int maxScore = Integer.MIN_VALUE;
-        Player winningPlayer = new Player();
+        Player winningPlayer = new Player(null, kingdom, trash, userInputHandler);
         for (Player p : players)
         {
             int thisScore = 0;
             for (Card c : p.hand())
             {
-                if (c.type().contains(Type.VICTORY) || c.type().contains(Type.CURSE))
-                    thisScore += c.victory_points();
+                if ((c instanceof Victory) || c instanceof Curse) {
+                    thisScore += c instanceof Victory ? ((Victory)(c)).victory_points() : ((Curse)(c)).victory_points();
+                }
             }
             if (thisScore > maxScore)
             {

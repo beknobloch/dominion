@@ -28,8 +28,8 @@ public class Moat extends Action implements Reaction {
     @Override
     public ArrayList<Type> type() {
         ArrayList<Type> t = new ArrayList<>();
-        t.add(Type.Action);
-        t.add(Type.Reaction);
+        t.add(Type.ACTION);
+        t.add(Type.REACTION);
         return t;
     }
 }

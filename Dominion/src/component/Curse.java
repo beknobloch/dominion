@@ -15,7 +15,7 @@ public class Curse extends Card {
     @Override
     public String toString() { return "Curse"; }
     @Override
-    public String typeToString() { return ""; }
+    public String typesToString() { return ""; }
 
     @Override
     public String description() {
@@ -26,7 +26,7 @@ public class Curse extends Card {
     public ArrayList<Type> type()
     {
         ArrayList<Type> t = new ArrayList<>();
-        t.add(Type.Curse);
+        t.add(Type.CURSE);
         return t;
     }
 

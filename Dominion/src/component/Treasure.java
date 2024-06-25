@@ -23,7 +23,7 @@ public abstract class Treasure extends Card {
     public ArrayList<Type> type()
     {
         ArrayList<Type> t = new ArrayList<>();
-        t.add(Type.Treasure);
+        t.add(Type.TREASURE);
         return t;
     }
 

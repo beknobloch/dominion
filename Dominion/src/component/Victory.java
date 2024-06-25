@@ -19,7 +19,7 @@ public abstract class Victory extends Card {
     public ArrayList<Type> type()
     {
         ArrayList<Type> t = new ArrayList<>();
-        t.add(Type.Victory);
+        t.add(Type.VICTORY);
         return t;
     }
 

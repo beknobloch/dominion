@@ -146,7 +146,7 @@ public class Player {
         {
             if (c instanceof Reaction)
             {
-                reactionOutput = c.react(event);
+                reactionOutput = ((Reaction)(c)).react(event, this);
             }
         }
         return reactionOutput;
@@ -154,7 +154,7 @@ public class Player {
 
     public boolean attack()
     {
-        return handleEvent(GameEvent.ATTACK) != "block_attack";
+        return handleEvent(GameEvent.ATTACK).equals("block_attack");
     }
 
     public String name() {
@@ -304,7 +304,7 @@ public class Player {
         while (hand.size() > num)
         {
             int dc = hand.size() - num;
-            ArrayList<Card> cardsToDiscard = uih.selectCardsFromHand(this, String.format("Choose %d cards to discard.", dc), dc, dc, "all");
+            ArrayList<Card> cardsToDiscard = uih.chooseCardsFromHand(this, String.format("Choose %d cards to discard.", dc), dc, dc, "all");
             for (Card c : cardsToDiscard)
             {
                 discard(c);
