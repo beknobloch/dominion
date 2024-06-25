@@ -114,6 +114,7 @@ public class Player {
                     try {
                         gain(s.pull_card());
                         numBuys--;
+                        numCoins -= s.displayCard().cost();
                         uih.display("You purchased a " + boughtCard.get(0) + ".");
                     } catch (Exception e) {
                         uih.display("The supply pile for " + s.displayCard().toString() + "s is empty.");

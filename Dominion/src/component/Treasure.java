@@ -16,7 +16,7 @@ public abstract class Treasure extends Card {
     @Override
     public String description()
     {
-        return "+¤" + this.value();
+        return "+$" + this.value();
     }
 
     @Override

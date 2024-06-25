@@ -225,7 +225,7 @@ public class CLIUserInputHandler implements UserInputHandler {
                 availableCard = s.displayCard();
             }
 
-            System.out.println(String.format("%d. %s %s  |  ¤%d  |  :  %s", i, availableCard.toString(), availableCard.typesToString(), availableCard.cost(), availableCard.description()));
+            System.out.println(String.format("%d. %s%s %s  |  $%d  |  %s", i, s.empty() ? "(EMPTY PILE)" : "", availableCard.toString(), availableCard.typesToString(), availableCard.cost(), availableCard.description()));
         }
 
         int cardsSelected = 0;
@@ -235,11 +235,16 @@ public class CLIUserInputHandler implements UserInputHandler {
             System.out.print("\nEnter the index of a card (0 for none): ");
             int index = scanner.nextInt();
             scanner.skip("\\R");
-            if (index == 0 && cardsSelected > minCardsToChoose) {
+            if (index == 0 && cardsSelected >= minCardsToChoose) {
                 break;
             }
             if (index > 0 && index <= player.kingdom.kingdom().size()) {
                 
+                if (player.kingdom.kingdom().get(index - 1).empty()) {
+                    display("That pile is empty!", false);
+                    continue;
+                }
+
                 Card selectedCard = player.kingdom.kingdom().get(index - 1).displayCard();
                 chosenCards.add(selectedCard);
                 System.out.println("Selected card: " + selectedCard);

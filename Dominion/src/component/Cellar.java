@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 public class Cellar extends Action {
 
-    public Cellar(UserInputHandler uih) {
-        super(uih);
-    }
-
     @Override
     public int cost() { return 2; }
 

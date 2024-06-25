@@ -10,11 +10,18 @@ public class Kingdom {
     {
         this.kingdom = new ArrayList<>();
 
+<<<<<<< Updated upstream
         int victoryCardCount = playerCount <= 2 ? 8 : 12;
         
         kingdom.add(new Supply<>(victoryCardCount, Estate::new));
         kingdom.add(new Supply<>(victoryCardCount, Duchy::new));
         kingdom.add(new Supply<>(victoryCardCount, Province::new));
+=======
+        kingdom.add(new Supply<>(20, Curse::new));
+        kingdom.add(new Supply<>(20, Estate::new));
+        kingdom.add(new Supply<>(10, Duchy::new));
+        kingdom.add(new Supply<>(12, Province::new));
+>>>>>>> Stashed changes
 
         kingdom.add(new Supply<>(60, Copper::new));
         kingdom.add(new Supply<>(40, Silver::new));
@@ -34,13 +41,18 @@ public class Kingdom {
 
             case CLASSIC -> {
 
-                kingdom.add(new Supply<>(10, () -> new Cellar(uih)));
+                kingdom.add(new Supply<>(10, () -> new Cellar()));
+                kingdom.add(new Supply<>(10, () -> new Market()));
+                kingdom.add(new Supply<>(10, () -> new Militia()));
+                kingdom.add(new Supply<>(10, () -> new Moat()));
+                kingdom.add(new Supply<>(10, () -> new Smithy()));
+                kingdom.add(new Supply<>(10, () -> new Village()));
 
             }
 
             default -> {
 
-                kingdom.add(new Supply<>(10, () -> new Cellar(uih)));
+                kingdom.add(new Supply<>(10, () -> new Cellar()));
 
             }
         }
