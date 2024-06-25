@@ -38,7 +38,7 @@ public class CLIUserInputHandler implements UserInputHandler {
             scanner.skip("\\R");
 
             try {
-                return new Kingdom(this, KingdomOption.get(choice));
+                return new Kingdom(this, KingdomOption.get(choice), yes_or_no("Would you like to play with Colony and Platinum?"););
             } catch (Exception e) {
             }
         }
