@@ -6,22 +6,29 @@ public class Kingdom {
 
     ArrayList<Supply<Card>> kingdom;
 
-    public Kingdom()
+    public Kingdom(int playerCount)
     {
         this.kingdom = new ArrayList<>();
 
-        kingdom.add(new Supply<>(20, Estate::new));
-        kingdom.add(new Supply<>(10, Duchy::new));
-        kingdom.add(new Supply<>(12, Province::new));
+        int victoryCardCount = playerCount <= 2 ? 8 : 12;
+        
+        kingdom.add(new Supply<>(victoryCardCount, Estate::new));
+        kingdom.add(new Supply<>(victoryCardCount, Duchy::new));
+        kingdom.add(new Supply<>(victoryCardCount, Province::new));
 
-        kingdom.add(new Supply<>(30, Copper::new));
-        kingdom.add(new Supply<>(30, Silver::new));
+        kingdom.add(new Supply<>(60, Copper::new));
+        kingdom.add(new Supply<>(40, Silver::new));
         kingdom.add(new Supply<>(30, Gold::new));
 
     }
-    public Kingdom(UserInputHandler uih, KingdomOption ko)
+    public Kingdom(int playerCount, UserInputHandler uih, KingdomOption ko, boolean useExpandedBase)
     {
-        this();
+        this(playerCount);
+
+        if (useExpandedBase) {
+            kingdom.add(new Supply<>(12, Platinum::new));
+            kingdom.add(new Supply<>(playerCount <= 2 ? 8 : 12, Colony::new));
+        }
 
         switch (ko) {
 
